@@ -1,0 +1,29 @@
+version: '2'
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+  relaycamera:
+    image: "node:6"
+    restart: always
+    expose:
+      - 3000
+    environment:
+      - VIRTUAL_HOST=relaycamera.petits-papiers.com
+      - VIRTUAL_PORT=3000
+    links:
+      - mongo:mongo
+    working_dir: /usr/src/app
+    command: ["node", "server/server.js"]
+    volumes:
+      - ./:/usr/src/app:rw
+  mongo:
+    image: "mongo:3"
+    restart: always
+    volumes:
+      - /root/data:/data/db:rw
