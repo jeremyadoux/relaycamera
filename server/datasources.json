@@ -1,0 +1,32 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mailserver": {
+    "name": "mailserver",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "auth": {
+          "user": "",
+          "pass": ""
+        }
+      }
+    ]
+  },
+  "mongodb": {
+    "host": "mongo",
+    "port": 27017,
+    "url": "",
+    "database": "relaycamera2",
+    "password": "",
+    "name": "mongodb",
+    "user": "",
+    "connector": "mongodb"
+  }
+}
