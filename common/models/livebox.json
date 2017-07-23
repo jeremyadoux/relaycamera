@@ -1,14 +1,12 @@
 {
-  "name": "alerte",
+  "name": "livebox",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "image": {
-      "type": "string"
-    }
+
   },
   "mixins": {
     "TimeStamp" : true
