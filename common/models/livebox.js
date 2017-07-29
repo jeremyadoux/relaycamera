@@ -3,7 +3,7 @@
 module.exports = function(Livebox) {
 
   Livebox.ping = function(req, cb) {
-    let ip = req.connection.remoteAddress;
+    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     Livebox.create({
       "ping": ip
     }, function(err, obj) {
